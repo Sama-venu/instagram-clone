@@ -9,20 +9,36 @@ services:
       MYSQL_DATABASE: instagram_clone
       MYSQL_USER: instagram_user
       MYSQL_PASSWORD: insta123
-    ports:
-      - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - insta-net
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
 
   app:
     image: venusama/newproject:insta-app
     ports:
-      - "3000:3000"
+      - target: 3000
+        published: 3000
+        protocol: tcp
+        mode: ingress
     environment:
       DB_HOST: mysql-db
       DB_USER: instagram_user
       DB_PASSWORD: insta123
       DB_NAME: instagram_clone
+    networks:
+      - insta-net
+    deploy:
+      replicas: 2
 
 volumes:
   mysql-data:
+
+networks:
+  insta-net:
+    driver: overlay
