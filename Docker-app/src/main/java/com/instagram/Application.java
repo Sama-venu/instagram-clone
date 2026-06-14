@@ -73,7 +73,7 @@ interface PostRepository extends JpaRepository<Post, Long> {
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", allowCredentials = "true")
+@CrossOrigin(originPatterns = "*", allowCredentials = "true")
 class InstagramController {
     @Autowired private UserRepository userRepo;
     @Autowired private PostRepository postRepo;
