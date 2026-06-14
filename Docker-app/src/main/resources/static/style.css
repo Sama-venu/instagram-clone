@@ -1,0 +1,12 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #fafafa; }
+.container { max-width: 600px; margin: 50px auto; padding: 20px; }
+h2 { text-align: center; margin-bottom: 20px; }
+input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+button { padding: 10px 20px; background: #3897f0; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+.navbar { display: flex; justify-content: space-between; margin-bottom: 20px; padding: 10px; background: white; border-radius: 5px; }
+.post { background: white; margin: 20px 0; border-radius: 5px; overflow: hidden; }
+.post img { width: 100%; }
+.post-info { padding: 15px; }
+.error { color: red; margin: 10px 0; }
+.create-post { background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
