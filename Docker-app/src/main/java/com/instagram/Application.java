@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import javax.persistence.*;
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -24,7 +26,7 @@ class User {
     @Column(unique = true) private String email;
     private String password;
     private String fullname;
-    // Getters/Setters
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getUsername() { return username; }
@@ -46,7 +48,7 @@ class Post {
     private String imageUrl;
     private String caption;
     private Date createdAt = new Date();
-    // Getters/Setters
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getUserId() { return userId; }
