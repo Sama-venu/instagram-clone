@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="auth">
+            <h2>Instagram Clone</h2>
+            <div>
+                <button onclick="showLogin()">Login</button>
+                <button onclick="showRegister()">Register</button>
+            </div>
+            <div id="loginForm">
+                <input id="loginUsername" placeholder="Username">
+                <input id="loginPassword" type="password" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <div class="error"></div>
+            </div>
+            <div id="registerForm" style="display:none">
+                <input id="regFullname" placeholder="Full Name">
+                <input id="regUsername" placeholder="Username">
+                <input id="regEmail" placeholder="Email">
+                <input id="regPassword" type="password" placeholder="Password">
+                <button onclick="register()">Register</button>
+                <div class="error"></div>
+            </div>
+        </div>
+        <div id="app" style="display:none">
+            <div class="navbar">
+                <span id="userName"></span>
+                <button onclick="logout()">Logout</button>
+            </div>
+            <div class="create-post">
+                <input id="imageUrl" placeholder="Image URL">
+                <textarea id="caption" placeholder="Caption"></textarea>
+                <button onclick="createPost()">Share</button>
+            </div>
+            <div id="posts"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
