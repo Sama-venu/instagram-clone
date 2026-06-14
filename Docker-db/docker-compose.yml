@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mysql-db:
+    build: .
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: instagram_clone
+      MYSQL_USER: instagram_user
+      MYSQL_PASSWORD: insta123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  app:
+    build: ../Docker-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql-db
+    environment:
+      DB_HOST: mysql-db
+      DB_USER: instagram_user
+      DB_PASSWORD: insta123
+      DB_NAME: instagram_clone
+volumes:
+  mysql-data:
